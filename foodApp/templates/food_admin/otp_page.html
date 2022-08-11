@@ -1,0 +1,36 @@
+{% extends 'food_admin/base.html' %}
+{% load static %}
+
+{% block main_content %}
+    <!-- Body Content Wrapper -->
+    <div class="ms-content-wrapper ms-auth">
+
+      <div class="ms-auth-container">
+        <div class="ms-auth-col">
+          <div class="ms-auth-bg"></div>
+        </div>
+        <div class="ms-auth-col">
+          <div class="ms-auth-form">
+            <form method="post" action="{% url 'verify_otp' %}" class="needs-validation" novalidate="">
+              {% csrf_token %}
+              <h3>OTP Verification</h3>                         
+              
+              <div class="mb-2">
+                <label for="validationCustom09">One Time Password</label>
+                <div class="input-group">
+                  <input type="password" name="otp" class="form-control" id="validationCustom09" placeholder="Enter the OTP here" required="">
+                  <div class="invalid-feedback">Please provide a OTP.</div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary mt-4 d-block w-100" type="submit">Verify OTP</button>
+              
+              <p class="mb-0 mt-3 text-center">Already have an account? <a class="btn-link" href="/">Login</a> </p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>    
+{% endblock %}
